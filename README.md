@@ -1,0 +1,3 @@
+- Python 3.8
+- Django 4.1.2
+- Django Rest Framework 3.14.0

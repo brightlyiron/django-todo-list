@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <script defer>
+        fetchTodoList();
+
+        function fetchTodoList() {
+            const xhr = new XMLHttpRequest();
+            const FETCH_METHOD = 'GET';
+            const FETCH_URL = '/api/v1/todo'
+            xhr.open(
+                FETCH_METHOD,
+                FETCH_URL,
+                true,
+            )
+
+            xhr.send();
+
+            xhr.onload = () => {
+                const todoListEle = document.getElementById('todo-list');
+                if (xhr.status == 200) {
+                    todoListEle.innerText = xhr.response;
+                    console.log(xhr.response);
+                    console.log("요청 성공");
+                } else {
+                    console.log("요청 실패")
+                }
+            }
+        }
+
+        // here js script src
+    </script>
+</head>
+<body>
+<h1>Todo List</h1>
+<div id="todo-list">
+
+</div>
+</body>
+</html>
